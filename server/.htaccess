@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+RewriteBase /   
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^user-group/(.*)$ user_group.php?slug=$1 [L]
+RewriteRule ^topic/(.*)$ topic.php?slug=$1 [L]
+RewriteRule ^profile/(.*)$ profile.php?user_slug=$1 [L]
+RewriteRule ^caregiver-profile/(.*)/$ caregiver-profile.php?user_slug=$1 [L]
+RewriteRule ^admin/$ admin/index.php [L]
+RewriteRule ^blog/$ blog/index.php [L]
+RewriteRule ^([^\.]+)/$ $1.php [NC,L]
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+</IfModule>
+ 
